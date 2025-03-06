@@ -3,11 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Simple Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label, input {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
 </head>
-<body>
-    <h1>Lorem ipsum dolor sit.
+<div class="signup-container">
+    <h2>Sign Up</h2>
+    <form id="signup-form" >
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <br>
+            <input type="text" id="username" name="username" required>
+            <div id="username-error" class="error-message"></div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <br>
+            <input type="email" id="email" name="email" required>
+            <div id="email-error" class="error-message"></div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <br>
+            <input type="password" id="password" name="password" required>
+            <div id="password-error" class="error-message"></div>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Sign Up"  required>
+        </div>
+    </form>
+</div>
 
-    </h1>
+<script>
+    document.getElementById("signup-form").addEventListener("submit", function(event)
+    { event.preventDefault()
+        let isValid = true; 
+   
+        // reset erroe message
+        document.getElementById("username-error").textContent = "Invalid Username";
+        document.getElementById("email-error").textContent = "Enter a valid email address";
+        document.getElementById("password-error").textContent = "Enter a valid password";
+        // username validation (Example)
+        const username = document.getElementById("username").value;
+        if (username.length < 8) {
+            document.getElementById(username-error).textContent = "username is less than 8 characters";
+            isValid = false;
+        }
+    }
+);
+const email = document.getElementById("email")
+
+
+
+if(!isvalid) {
+    event.preventDefault();
+}
+else{
+    console.log("Form submited successful");
+}
+</script>
+
 </body>
 </html>
