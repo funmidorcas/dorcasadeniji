@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <div class="my-class">element 1</div>
+    <p class="my-class">element 2</p>
+    <span class="my-class"> element 3</span>
+    <address>abuja</address>
+    <div id="save">
+        <h1 class="item"> item 1</h1>
+        <p class="item">item 2</p>
+    </div>
+
+    <div id="set">
+    </div>
+    <h1 id="set2"></h1> 
+
+    <img id="myImage" src="/img/user1.jpg" alt="online">
+
+
+    <h1 id="new2">open</h1>
+
+    <h1> sets inline</h1>
+    <div id="classDiv" class="initialClass"> class div</div>
+    <style>
+        .highlight{
+            border: 2px solid blue;
+        }
+</style> 
+
+
+
+<p></p>
+
+<h1>document.createElement</h1>
+<div id="container"></div>
+<ul id="myList">
+    <li>item</li>
+    <li>item2</li>
+    <li id="removeMe">item 3</li>
+
+</ul>
+
+<button id="myButton">press here</button>
+<!-- <p id="note"></p> -->
+    <script>
+const element = document.getElementsByClassName("my-class")
+console.log(element)
+console.log(element.length)
+
+console.log(element[0].textContext)
+
+for(let i=0; i < element.length; i++){
+element[i].style.color = "red"
+}
+
+Array.from(element).forEach(element => {
+element.style.fontWeihgt = "bold"
+})
+ 
+const place = document.getElementsByTagName("address")
+console.log(place)
+
+const first = document.querySelectorAll("#save, .item")
+console.log(first)
+
+
+let set = document.getElementById("set")
+let settle = document.getElementById("set2")
+set.innerHTML = "<h1>see me</h1> <p> list of item</p>"
+settle.textContent = "update";
+
+
+
+const image = document.getElementById("myImage");
+image.setAttribute("src", "/img/funmi.jpg");
+image.setAttribute("alt", "New Image");
+
+const self = document.getElementById("new2")
+
+ self.style.backgroundColor = "purple"
+ self.style.color = "red"
+
+
+ const divClass = document.getElementById("classDiv")
+ divClass.classList.add("highlight")
+ setTimeout(() => divClass.classList.remove("highlight"), 1000)
+ setTimeout(() => divClass.classList.toggle("highlight"), 2000)
+
+const newParagraph = document.createElement("p")
+newParagraph.textContent = "new paragraph"
+document.getElementById("container").appendChild(newParagraph)
+const list = document.getElementById("myList")
+const itemToRemove = document.getElementById("removeMe")
+list.removeChild(itemToRemove)
+
+// const note = document.getElementById("note")
+const button = document.getElementById("myButton")
+button.addEventListener("click", () => {
+    // message = "done"
+    // note.textContent = message
+    alert("button clicked")
+
+})
+
+</script>
+</body>
+</html>

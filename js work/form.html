@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Reviews</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+
+    <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg">
+        <h2 class="text-2xl font-bold text-gray-800 text-center">Customer Reviews</h2>
+
+        <form id="reviewForm" class="mt-4 space-y-4">
+            <div>
+                <label for="name" class="block font-medium text-gray-700">Name:</label>
+                <input type="text" id="name" name="name" required class="w-full p-2 border rounded-md focus:ring focus:ring-blue-300">
+            </div>
+
+            <div>
+                <label for="rating" class="block font-medium text-gray-700">Rating:</label>
+                <select id="rating" name="rating" required class="w-full p-2 border rounded-md focus:ring focus:ring-blue-300">
+                    <option value="">Select a rating</option>
+                    <option value="1">1 - Poor</option>
+                    <option value="2">2 - Fair</option>
+                    <option value="3">3 - Good</option>
+                    <option value="4">4 - Very Good</option>
+                    <option value="5">5 - Excellent</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="comment" class="block font-medium text-gray-700">Comment:</label>
+                <textarea id="comment" name="comment" required class="w-full p-2 border rounded-md focus:ring focus:ring-blue-300 h-24"></textarea>
+            </div>
+
+            <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600">
+                Submit Review
+            </button>
+        </form>
+
+        <div class="mt-6">
+            <h3 class="text-xl font-bold text-gray-700">Reviews:</h3>
+            <div id="reviewList" class="space-y-4 mt-4">
+                <!-- <strong class="text-blue-600"></strong>
+                <span class="text-yellow-500 font-semibold"></span>
+                      <p class="text-gray-700 mt-2"></p> -->
+      
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("reviewForm").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+
+            
+            let name = document.getElementById("name").value;
+            let rating = document.getElementById("rating").value;
+            let comment = document.getElementById("comment").value;
+
+            
+            let reviewItem = document.createElement("div");
+            reviewItem.classList.add("p-4", "bg-gray-50", "rounded-md", "shadow", "border");
+// let reviewList = getElementById("reviewList") 
+// reviewList = name + " " + rating + " " + comment
+            reviewItem.innerHTML = `
+                <strong class="text-blue-600">${name}</strong> - 
+          <span class="text-yellow-500 font-semibold">${'*'.repeat(rating)}${'*'.repeat(5 - rating)}</span>
+                <p class="text-gray-700 mt-2">${comment}</p>
+            `;
+ document.getElementById("reviewList").appendChild(reviewItem);
+ document.getElementById("reviewForm").reset();
+        });
+    </script>
+
+</body>
+</html>
